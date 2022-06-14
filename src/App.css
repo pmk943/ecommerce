@@ -1,0 +1,58 @@
+/* Use any custom styles you'd like here */
+
+/* Easily customizable colors for the web app */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+:root {
+  --main-background-color: #000;
+  --main-top-background-color: #000;
+  --main-accent-color: #FB8F67;
+  --title-color: #1E2019;
+  --text-color:#fff;
+  --text-font-family: Roboto Slab, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
+}
+
+.button.is-primary {
+  background-color: var(--main-accent-color);
+}
+
+.button.is-primary:hover {
+  background-color: var(--title-color);
+}
+
+.title {
+  color: var(--main-accent-color);
+  font-family: 'Inconsolata', monospace;
+  font-size: 3em;
+}
+
+#inner-large-banner {
+  height: 40%;
+  width: 100%;
+  background-size: cover;
+  background-position: 50% 25%;
+}
+.home-container {
+  background-color: var(--main-background-color);
+}
+#wrapper {
+  margin: auto;
+  width: 90%;
+}
+
+#product-catalog {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.product-title {
+  font-size: 2em;
+  color:#d865e7;
+}
+
+.product-content {
+  color: #000 ;
+  font-family: var(--text-font-family) !important;
+}
