@@ -7,10 +7,11 @@ import ProductMoreDetails from './views/productfulldetails/ProductMoreDetails';
 const App = (props) => {
      
       return(
-        <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about/:productId" element={<ProductMoreDetails />} />
-      </Routes>
+        <Home />
+      //   <Routes>
+      //   <Route path="/" element={<Home />} />
+      //   <Route path="/about/:productId" element={<ProductMoreDetails />} />
+      // </Routes>
       );
   
 }

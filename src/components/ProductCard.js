@@ -11,31 +11,30 @@ import { Button, Paper } from '@mui/material';
 
 
 
-export default function RecipeReviewCard(props) {
-
-  const toLink = `/about/${props.product.id}`
+export default function ProductCard({uri}) {
+  const toLink = `/about/${8}`
   return (
     <Link to={toLink} style={{ textDecoration: 'none' }}>
       <Card elevation={3} sx={{ maxWidth: 450 }}>
       <CardHeader
         className="product-title"
-        title={props.product.name}
+        title="staticHeader"
       />
       <CardMedia
         component="img"
         height="194"
-        image={props.product.image}
+        image={uri}
         alt="Placeholder image"
       />
-      <CardContent>
+      {/* <CardContent>
         <div className="product-content" variant="body2" color="text.secondary">
            {props.product.short_description}
         </div>
-      </CardContent>
+      </CardContent> */}
       <CardActions disableSpacing>
         <Button variant="contained">Buy Now</Button>
         <span style={{marginLeft:'auto'}}>
-          <strong>Price : {props.product.cost}</strong>
+          <strong>Price : "123$ static values"</strong>
         </span>
       </CardActions>
     </Card>
