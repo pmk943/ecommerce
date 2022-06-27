@@ -26,7 +26,6 @@ function ProductMoreDetails(props) {
     tokenPrice,
     tokenName,
   } = productToShow;
-  debugger;
   const onBuynowClick = async () => {
     const { contracts, utils } = window.zilPay;
     const contract = contracts.at("0x60653dff3a02f5e966c4580c76a0266ba1965714");
@@ -69,14 +68,14 @@ function ProductMoreDetails(props) {
         </figure>
       </div>
       <div className="product-right">
-        <p className="product-title">{tokenImageDetails.tokenName}</p>
+        <p className="product-title">{tokenName}</p>
         {isItemSoldAlready === "True" ? (
           <Button disabled color="error" variant="contained">
             Item is sold already
           </Button>
         ) : (
           <Button onClick={onBuynowClick} variant="contained">
-            Buy Now for {convertfromBpsToDollars(productToShow.tokenPrice)}$
+            Buy Now for {convertfromBpsToDollars(tokenPrice)}$
           </Button>
         )}
       </div>
@@ -85,7 +84,7 @@ function ProductMoreDetails(props) {
           <h1> About info goes here</h1>
         </div>
         <div>
-          <AttributesTable data={productToShow.attributes}/>
+          <AttributesTable data={tokenImageDetails.attributes}/>
         </div>
       </div>
     </div>
