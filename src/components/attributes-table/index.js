@@ -13,12 +13,12 @@ debugger;
     
     
       return (
-        <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableContainer component={Paper} sx={{padding:"10px"}}>
+          <Table sx={{ minWidth: 200, border:"none" }} aria-label="simple table">
             <TableHead>
               <TableRow>
                 <TableCell>Trait</TableCell>
-                <TableCell align="right">Value</TableCell>
+                <TableCell align="center">Value</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -30,7 +30,7 @@ debugger;
                   <TableCell component="th" scope="row">
                     {traitObj.trait_type}
                   </TableCell>
-                  <TableCell align="right">{traitObj.value}</TableCell>
+                  <TableCell align="center">{traitObj.value}</TableCell>
                 </TableRow>
               ))}
             </TableBody>

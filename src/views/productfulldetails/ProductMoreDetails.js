@@ -1,4 +1,5 @@
-import { Button } from "@mui/material";
+import { Box, Button, Grid } from "@mui/material";
+import { Container } from "@mui/system";
 import React from "react";
 import { useParams } from "react-router-dom";
 import AttributesTable from "../../components/attributes-table";
@@ -41,7 +42,7 @@ function ProductMoreDetails(props) {
         {
           vname: "item_id",
           type: "Uint256",
-          value: productToShow.tokenId,
+          value: tokenId,
         },
       ],
       {
@@ -56,38 +57,38 @@ function ProductMoreDetails(props) {
   };
   //console.log("che",productToShow.token_owners[params.productId])
   return (
-    <div className="fullproduct-container">
-      <div className="product-left">
-        <figure className="image is-4by3">
-          <img
-            src={tokenImageDetails.resources[0].uri}
-            alt="Product"
-            width="450px"
-            height="450px"
-          ></img>
-        </figure>
-      </div>
-      <div className="product-right">
-        <p className="product-title">{tokenName}</p>
-        {isItemSoldAlready === "True" ? (
-          <Button disabled color="error" variant="contained">
-            Item is sold already
-          </Button>
-        ) : (
-          <Button onClick={onBuynowClick} variant="contained">
-            Buy Now for {convertfromBpsToDollars(tokenPrice)}$
-          </Button>
-        )}
-      </div>
-      <div>
-        <div>
-          <h1> About info goes here</h1>
-        </div>
-        <div>
-          <AttributesTable data={tokenImageDetails.attributes}/>
-        </div>
-      </div>
-    </div>
+    <Container maxWidth="90%">
+      <Grid container spacing={2}>
+        <Grid item xs={6} >
+          <figure className="image is-4by3">
+            <img
+              src={tokenImageDetails.resources[0].uri}
+              alt="Product"
+              width="450px"
+              height="450px"
+            ></img>
+          </figure>
+        </Grid>
+        <Grid item xs={6}>
+          <p className="product-title">{tokenName}</p>
+          {isItemSoldAlready === "True" ? (
+            <Button color="error" variant="contained">
+              Item is sold already
+            </Button>
+          ) : (
+            <Button onClick={onBuynowClick} variant="contained">
+              Buy Now for {convertfromBpsToDollars(tokenPrice)}$
+            </Button>
+          )}
+        </Grid>
+          <Grid item xs={5}>
+            <h1> About info goes here</h1>
+          </Grid>
+          <Grid item xs={7}>
+            <AttributesTable data={tokenImageDetails.attributes} />
+          </Grid>
+      </Grid>
+    </Container>
   );
 }
 
