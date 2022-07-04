@@ -24,7 +24,7 @@ export default function ProductCard({ props }) {
   return (
     <Grid item xs={12} md={6} lg={4}>
     <Link to={toLink} style={{ textDecoration: "none" }}>
-        <Card elevation={3} sx={{ maxWidth: 450 }}>
+        <Card elevation={3} sx={{border: '1px solid #29475A',borderRadius:"10px", minWidth: 150 }}>
           <CardHeader className="product-title" title={tokenName} />
           <CardMedia
             component="img"
@@ -39,7 +39,7 @@ export default function ProductCard({ props }) {
       </CardContent> */}
           <CardActions disableSpacing>
             {isItemSoldAlready === "True" ? (
-              <Button disabled color="error" variant="contained">
+              <Button  color="error" variant="contained">
                 {" "}
                 Item is sold already
               </Button>

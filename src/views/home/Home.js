@@ -9,7 +9,7 @@ function Home(props) {
   ));
 
   return (
-    <Container sx={{ bgcolor: "#0D1B24", height: "100vh", minWidth: "90vw" }}>
+    <Container sx={{height: "100vh", width: "100vw" }}>
       <Grid container spacing={2}>
         {displayProducts}
       </Grid>

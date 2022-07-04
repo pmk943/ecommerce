@@ -4,7 +4,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import AttributesTable from "../../components/attributes-table";
 import { convertfromBpsToDollars } from "../../utils/function";
-import "./ProductMoreDetails.css";
 
 function ProductMoreDetails(props) {
   const { productsData } = props;
@@ -57,17 +56,20 @@ function ProductMoreDetails(props) {
   };
   //console.log("che",productToShow.token_owners[params.productId])
   return (
-    <Container maxWidth="90%">
+    <Container>
       <Grid container spacing={2}>
-        <Grid item xs={6} >
-          <figure className="image is-4by3">
-            <img
-              src={tokenImageDetails.resources[0].uri}
-              alt="Product"
-              width="450px"
-              height="450px"
-            ></img>
-          </figure>
+        <Grid item xs={6}>
+          <Box >
+            <figure>
+              <img
+                src={tokenImageDetails.resources[0].uri}
+                alt="Product"
+                width="450px"
+                height="450px"
+                style={{ border: "1px solid #29475A", borderRadius: "10px" }}
+              ></img>
+            </figure>
+          </Box>
         </Grid>
         <Grid item xs={6}>
           <p className="product-title">{tokenName}</p>
@@ -81,12 +83,17 @@ function ProductMoreDetails(props) {
             </Button>
           )}
         </Grid>
-          <Grid item xs={5}>
-            <h1> About info goes here</h1>
-          </Grid>
-          <Grid item xs={7}>
+        <Grid item xs={5}>
+          <Box sx={{ border: "1px solid #29475A", borderRadius: "10px" }}>
+            {" "}
+            About info goes here
+          </Box>
+        </Grid>
+        <Grid item xs={7}>
+          <Box sx={{ border: "1px solid #29475A", borderRadius: "10px" }}>
             <AttributesTable data={tokenImageDetails.attributes} />
-          </Grid>
+          </Box>
+        </Grid>
       </Grid>
     </Container>
   );
