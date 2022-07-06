@@ -56,8 +56,6 @@ function ProductMoreDetails(props) {
       },
       true
     );
-    console.log("callTX",callTx)
-    debugger;
     const confirmedTxn = await callTx.confirm(callTx.id);
 
     console.log(`The transaction status is:`);
@@ -70,9 +68,7 @@ function ProductMoreDetails(props) {
       debugger;
     }
   };
-  // console.log("che",productToShow.token_owners[params.productId])
-  console.log("che",productToShow)
-  debugger;
+  console.log("che",productToShow.token_owners[params.productId])
   return (
     <Container>
       <Grid container spacing={2}>

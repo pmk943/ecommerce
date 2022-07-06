@@ -44,8 +44,10 @@ const App = () => {
                         otherArguments = {},
                       ] = id_to_market_item[key]?.arguments;
                       
-
-                      const cdetail = window.zilPay.contracts.at(nftAddress);
+                      if(tokenId !== "5") {
+                        debugger;
+                        
+                        const cdetail = window.zilPay.contracts.at(nftAddress);
                       const secondDataFetch = await cdetail.getState();
                       const { token_uris = {}, token_name = "" } =
                         secondDataFetch;
@@ -62,6 +64,9 @@ const App = () => {
                         tokenName: token_name,
                         isItemSoldAlready:otherArguments?.constructor
                       });
+
+                      }
+                      
                     }
 
                     setProductsData(productDetailsArr);
