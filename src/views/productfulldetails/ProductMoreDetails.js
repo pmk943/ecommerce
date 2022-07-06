@@ -4,10 +4,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import AttributesTable from "../../components/attributes-table";
 import { convertfromBpsToDollars } from "../../utils/function";
-import { BN, Long, bytes, units } from "@zilliqa-js/util";
-import { Zilliqa } from "@zilliqa-js/zilliqa";
-import { toBech32Address, getAddressFromPrivateKey } from "@zilliqa-js/crypto";
-const zilliqa = new Zilliqa("https://dev-api.zilliqa.com");
 function ProductMoreDetails(props) {
   const { productsData } = props;
   let params = useParams();
@@ -30,13 +26,13 @@ function ProductMoreDetails(props) {
     tokenName,
   } = productToShow;
   const onBuynowClick = async () => {
-    //const { contracts, utils } = window.zilPay;
-    const deployedContract = zilliqa.contracts.at(
+    const { contracts, utils } = window.zilPay;
+    const deployedContract = contracts.at(
       "0x60653dff3a02f5e966c4580c76a0266ba1965714"
     );
     //const amount = utils.units.fromQa(2500000000000, utils.units.Units.Zil);
     const amount = 2500000000000;
-    const gasPrice = units.toQa(1000, units.Units.Li);
+    const gasPrice = utils.units.toQa(1000, utils.units.Units.Li);
 
     // Sending to DS
 
@@ -52,7 +48,7 @@ function ProductMoreDetails(props) {
       {
         amount,
         gasPrice,
-        gasLimit: Long.fromNumber(9000),
+        gasLimit: utils.Long.fromNumber(9000),
       },
       true
     );

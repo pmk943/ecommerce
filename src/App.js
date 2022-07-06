@@ -6,6 +6,7 @@ import ProductMoreDetails from "./views/productfulldetails/ProductMoreDetails";
 
 const App = () => {
   const [productsData, setProductsData] = useState([]);
+  const [filterdProductsData, setfilterdProductsData] = useState([]);
   //todo in development useffect runs twice remove if(x===1 ) inside useEffect afterwards
   let x = 1;
   useEffect(() => {
@@ -70,6 +71,7 @@ const App = () => {
                     }
 
                     setProductsData(productDetailsArr);
+                    setfilterdProductsData(productDetailsArr);
                   } catch (err) {
                     console.log(
                       "error occured while fetching the data in App component",
@@ -92,13 +94,17 @@ const App = () => {
       zill();
     }
   }, [x]);
+  const onSearch = (searchText) =>{
+    console.log("searchText",searchText)
+    setfilterdProductsData( productsData.filter(productsObj => productsObj.tokenImageDetails.name.startsWith(searchText) ))
+  }
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home productsData={productsData} />} />
+        <Route path="/" element={<Home productsData={filterdProductsData} onSearch={onSearch} />} />
         <Route
           path="/about/:productId"
-          element={<ProductMoreDetails productsData={productsData} />}
+          element={<ProductMoreDetails productsData={filterdProductsData} />}
         />
       </Routes>
     </>
