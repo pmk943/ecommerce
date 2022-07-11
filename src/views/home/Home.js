@@ -11,8 +11,8 @@ function Home(props) {
 
   return (
     <>
-    <Menubar onSearch={onSearch} />
-    <Container sx={{height: "100vh", width: "100vw" }}>
+    <Menubar style={{ pointerEvents: "none" }} onSearch={onSearch} />
+    <Container sx={{height: "100vh", width: "100vw", marginTop:"20px" }}>
       <Grid container spacing={2}>
         {displayProducts}
       </Grid>

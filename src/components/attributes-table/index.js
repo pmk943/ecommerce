@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 
 export const AttributesTable = (props) => {
 const data = props.data;
-debugger;
+
     
     
       return (

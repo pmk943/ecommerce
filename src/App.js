@@ -46,7 +46,7 @@ const App = () => {
                       ] = id_to_market_item[key]?.arguments;
                       
                       if(tokenId !== "5") {
-                        debugger;
+                       
                         
                         const cdetail = window.zilPay.contracts.at(nftAddress);
                       const secondDataFetch = await cdetail.getState();
@@ -60,6 +60,7 @@ const App = () => {
 
                       productDetailsArr.push({
                         tokenId,
+                        ownerAddress,
                         tokenImageDetails: tokenImageDetails,
                         tokenPrice: priceInBPS,
                         tokenName: token_name,
