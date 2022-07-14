@@ -1,5 +1,4 @@
 import toast from 'react-hot-toast';
-import decodeMessage from './decodeMessage';
 
 const transitionMessageAlert = (
   zilPay,
@@ -7,18 +6,14 @@ const transitionMessageAlert = (
   transitionName
 ) => {
   const transition = new Promise((success, error) => {
-    console.log("transsuc&er", success, error)
     const subscription = zilPay.wallet
       .observableTransaction(transactionId)
       .subscribe(async (hash) => {
         subscription.unsubscribe();
         try {
-        console.log("transHash", hash)
-          const Tx = await zilPay.blockchain.getTransaction(hash);
-          console.log("transTx", Tx)
+          const Tx = await zilPay.blockchain.getTransaction(hash)
           const code = Tx.receipt.success
         //   const message = decodeMessage(code);
-          console.log("transMessage")
           if (code) success("success");
           error("failed");
         } catch (err) {
